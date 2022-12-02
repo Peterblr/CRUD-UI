@@ -47,9 +47,9 @@ Description main steps:
 4. Install Sweetalert2 (https://www.npmjs.com/package/sweetalert2):
     4.1. --> npm i sweetalert2
     4.2. use Sweetalert2 - add import to Component -->
-        import Swal from 'sweetalert2';
-
+        import Swal from 'sweetalert2'
         and use (https://sweetalert2.github.io/) -->
+        
          Swal.fire("Hello!");
          Swal.fire("Ooops...", "Something wrong!", "error");
          Swal.fire("Ooops...", "Something wrong!", "success");
@@ -92,6 +92,7 @@ Description main steps:
         })
 
 5. Update strict to 'false' into tsconfig.json:
+
     ...
     "forceConsistentCasingInFileNames": true,
     "strict": false,
