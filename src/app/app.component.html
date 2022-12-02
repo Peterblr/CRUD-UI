@@ -1,0 +1,89 @@
+<div class="card">
+    <h5 class="card-header">User Registration</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label>First Name</label>
+                <input type="text"
+                    class="form-control form-control-lg my-shadow"            
+                    formControlName="firstName"
+                    required
+                    >
+                    <!-- <input type="text"
+                    class="form-control form-control-lg my-shadow"            
+                    formControlName="firstName"
+                    required
+                    [class.is-invalid]="CardOwnerName.touched && CardOwnerName.invalid"
+                    [class.is-valid]="CardOwnerName.touched && CardOwnerName.valid"
+                    > -->
+            </div>
+            <div class="mb-3">
+                <label>Last Name</label>
+                <input type="text"
+                    class="form-control form-control-lg my-shadow"            
+                    formControlName="lastName"
+                    required
+                    >
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="text"
+                    class="form-control form-control-lg my-shadow"            
+                    formControlName="email"
+                    required
+                    >
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Password</label>
+                    <input type="text"
+                        class="form-control form-control-lg my-shadow"            
+                        formControlName="password"
+                        required
+                        >
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Required Password</label>
+                    <input type="text"
+                        class="form-control form-control-lg my-shadow"            
+                        formControlName="confirmPassword"
+                        required
+                        >
+                </div>
+            </div>  
+            <div class=" form-group text-center">
+                <!-- <button class="btn btn-info" type="submit" [disabled]="registerForm.invalid">{{buttonText}}</button> -->
+                <button class="btn btn-info" type="submit">{{buttonText}}</button>
+                <button class="btn btn-danger" type="button" (click)="onCancel()">Cancel</button>
+            </div>      
+        </form>
+    </div>
+</div>
+<div class="card">
+    <h5 class=" card-header">User List</h5>
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="my-shadow">
+                <tr *ngFor="let user of users" class="my-shadow-table">
+                    <td >{{user.firstName}}</td>
+                    <td >{{user.lastName}}</td>
+                    <td >{{user.email}}</td>
+                    <td >{{user.password}}</td>
+                    <td>
+                        <i class="fa fa-edit text-primary me-3" (click)="updateUser(user.id)"></i>
+                        <i class="fa fa-trash-o text-danger" (click)="deleteUser(user.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
